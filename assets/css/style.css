@@ -1,0 +1,191 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poiret One', cursive;
+}
+
+.container {
+    display: grid;
+    grid-template-areas:
+       "nav"
+       "filtros"
+       "main"
+       "footer";
+    grid-template-rows: 60px/*nav*/ 60px/*filtros*/ 1fr/*principal*/ 60px/*footer*/; 
+    height: 100vh;
+    height: 100%;
+    width: 100%;
+}
+
+nav {
+    color: white; 
+    background: #e4c1b3; 
+    grid-area: nav;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px
+}
+
+.logo {
+    display: flex;
+    gap: 5px;
+    transform: rotate(0deg);
+    transition: transform 1s;
+}
+
+.logo:hover {
+    transform: perspective(500px) rotateX(90deg);
+    cursor: pointer;
+}
+
+nav > ul {
+    display: none;
+}
+
+a:hover {
+    background-color: #c6ccc7;
+}
+
+.filtros {
+    grid-area: filtros;
+    background-color: #c6ccc7;
+    align-items: center; 
+    display: flex;
+    flex-direction: column;
+}
+
+.filtros > .opcion {
+    width: 280px;
+    height: 35px;
+    padding-left: 5px;
+}
+
+main {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px; 
+    gap: 10px;   
+}
+
+.card {
+    display: flex; /* Activa el modelo Flexbox en el contenedor de la tarjeta */
+    flex-direction: column; /* Organiza los elementos en columnas */
+    align-items: center; /* Centra los elementos horizontalmente en el contenedor */
+    padding: 35px 0; /* Agrega espacio interno */
+    gap: 15px;
+    height: fit-content;
+    width: 220px; /* Ancho máximo de la tarjeta, ajusta según tus necesidades */
+}
+
+.card-container > .card > img {
+    width: 200px; /* Asegura que la imagen no sea más ancha que su contenedor */
+    height: 300px;
+    transition: all 3s ease-out;
+}
+
+img:hover {
+    transform: rotateY(360deg);
+}
+
+.card > button {
+    background-color: #e4c1b3; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    border: none; /* Elimina el borde del botón */
+    padding: 10px 20px; /* Espacio interno del botón */
+    margin-top: 10px; /* Espacio superior para el botón */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: all 0.3s ease-out;
+}
+
+button:hover {
+    background-color: rgb(185, 190, 186);
+    transform: scale(1.2);
+}
+
+footer {
+    grid-area: footer; 
+    background: #c6ccc7; 
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* cambia la rotación de fb */
+.transform1 {
+    text-decoration: none;
+    color: white;
+    transform: rotate(0deg);
+    transition: transform 1s;
+}
+
+.transform1:hover {
+    transform: rotate(180deg);
+}
+
+/* cambia la rotación de insta */
+.transform2 {
+    text-decoration: none;
+    color: white;
+    transform: rotate(0deg);
+    transition: transform 1s;
+}
+
+.transform2:hover {
+    transform: rotate(180deg);
+}
+
+footer > div {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin: 3px;
+}
+
+@media (min-width: 576px) { 
+    .container {
+        grid-template-areas:
+           "nav filtros"
+           "nav main"
+           "footer main";
+        grid-template-columns: 150px 1fr;
+        grid-template-rows: 60px 1fr 60px; 
+    }
+    main > .card-container {
+        flex-direction: row; 
+        flex-wrap: wrap;
+    }
+    nav {
+        flex-direction: column;
+        justify-content: start;
+        gap: 35px;
+        padding: 15px;
+    }
+    nav > ul {
+        list-style: none;
+    }
+    nav > ul {
+        display: block;
+    }
+    nav > .logo {
+        flex-direction: column;
+        align-items: center;
+    }
+    nav > .logo > h1 {
+        text-align: center;
+    }
+    nav > .bars {
+        display: none;
+    }
+}
+
